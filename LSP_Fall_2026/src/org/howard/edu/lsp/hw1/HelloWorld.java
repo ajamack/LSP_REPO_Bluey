@@ -1,4 +1,7 @@
 package org.howard.edu.lsp.hw1;
+/**
+ * Name: Aja Wilkes
+ */
 
 public class HelloWorld {
 
