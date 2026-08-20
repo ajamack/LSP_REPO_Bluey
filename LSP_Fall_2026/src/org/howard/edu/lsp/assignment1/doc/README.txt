@@ -15,14 +15,19 @@
 	Yes, with instructor permission or as noted in assignments.
 	
 6.	Which course policy will have the greatest impact on your success this semester? Explain why (2–3 sentences).
-	Given my current circumstances, consistent access to lecture content will likely be the single biggest factor in my success
-	this semester.  
+	Given my current circumstances, the class attendance policy paired with consistent access to lecture content will be the single biggest 
+	factor in my success in this course. Between commuting to campus and childcare, limited access to lectures would be a significant barrier,
+	so this format directly supports my success in this course.
+	  
 7.	When are office hours for LSP Fall 2026?
 	Office hours are provided on an as-needed basis.
+	
 8.	What is your responsibility for monitoring Piazza, and are you responsible for assignment updates, clarifications, or deadline changes posted there?
 	Yes, we are responsible for monitoring Piazza and staying abreast of any changes or updates in the class.
+	
 9.	What documentation is required if you are unable to take an examination because of a medical issue or other approved circumstance?
 	A medical note that explicitly states you were unable to physically take the exam, no diagnosis required.
+	
 10.	Does scholarship status entitle a student to different grading, deadline, attendance, or course requirements?
 	Absolutely not.
 
