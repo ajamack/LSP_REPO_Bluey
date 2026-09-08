@@ -32,13 +32,41 @@ public class ETLPipeline {
 			String line;
 			while ((line = reader.readLine()) != null) {
 				rowsRead++;
-			}
 			
-			boolean isValid = true;
 			
-			if (line.trim().isEmpty()) {
-				isValid = false; // Skip rpws that are blank
-			}
+				// Skip rpws that are blank
+				if (line.trim().isEmpty()) {
+					rowsSkipped++;
+				} else {
+					String[] fields = line.split(","); // Ensure rows have exactly 5 field
+					if (fields.length != 5) {
+						rowsSkipped++;
+					} else {
+			
+			
+						// Trim whitespace from 5 fields
+						String employeeIdStr = fields[0].trim();
+						String name = fields[1].trim();
+						String department = fields[2].trim();
+						String hoursWorkedstr = fields[3].trim();
+						String hourlyRatestr = fields[4].trim();
+			
+						// Ensure employeeID is Integer
+						int employeeId = 0;
+						boolean employeeId0k = true;
+			
+						try {
+							employeeId = Integer.parseInt(employeeIdStr);
+						} catch (NumberFormatException e) {
+							employeeId0k = false;
+						}
+						if (!employeeId0k) {
+							rowsSkipped++;
+						} else {
+				
+						}
+		
+
 			
 			
 			System.out.println("Rows read so far: " + rowsRead);
