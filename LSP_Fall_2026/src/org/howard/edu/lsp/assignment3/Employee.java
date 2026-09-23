@@ -1,7 +1,7 @@
 package org.howard.edu.lsp.assignment3;
 
 /** Represents a single line of employee data 
- * to be manipulated later in the pipeline
+ * to be manipulated later in the pipeline, gets all basic information from user
  */
 public class Employee {
 	private int employeeId;

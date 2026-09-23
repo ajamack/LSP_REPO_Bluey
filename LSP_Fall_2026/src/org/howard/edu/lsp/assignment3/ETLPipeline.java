@@ -9,12 +9,12 @@ public class ETLPipeline {
 	public static void main(String[] args) throws IOException {
 		String inputPath = "data/employees.csv";
 		String outputPath = "data/transformed_employees.csv";
-		
+		// Use new classes to manipulate data, rewrite
 		EmployeeReader reader = new EmployeeReader();
 	    EmployeeParser parser = new EmployeeParser();
 	    PayCalculator calculator = new PayCalculator();
 	    EmployeeWriter writer = new EmployeeWriter();
-	    
+	    // Initialize counters
 	    int rowsRead = 0;
 	    int rowsTransformed = 0;
 	    int rowsSkipped = 0;
@@ -26,7 +26,7 @@ public class ETLPipeline {
 	        rowsRead++;
 
 	        Employee emp = parser.parseLine(line);
-
+	        // Ignore if empty, count skipped. 
 	        if (emp == null) {
 	            rowsSkipped++;
 	        } else {
@@ -49,7 +49,7 @@ public class ETLPipeline {
 	    }
 	    
 	    writer.writeEmployees(outputPath, processedEmployees);
-
+	    // Print statements
 	    System.out.println("Rows read: " + rowsRead);
 	    System.out.println("Rows transformed: " + rowsTransformed);
 	    System.out.println("Rows skipped: " + rowsSkipped);

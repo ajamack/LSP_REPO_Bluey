@@ -1,6 +1,9 @@
 package org.howard.edu.lsp.assignment3;
 
 import java.util.List;
+/** Reads through CSV 
+ * 
+ */
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;

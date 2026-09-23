@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 public class PayCalculator {
 	public double calculateGrossPay(double hoursWorked, double hourlyRate, String department) {
 		double pay;
-		
+		// Calculate hourly pay, overtime, IT pay
 		if (hoursWorked <= 40) {
 			pay = hoursWorked * hourlyRate;
 		} else {
