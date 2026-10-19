@@ -3,9 +3,8 @@ package org.howard.edu.lsp.assignment5;
 import java.util.TreeSet;
 
 /**
- * Represent a mathematical integer set with no duplicates
+ * Represents a mathematical integer set with no duplicates
  */
-
 public class IntegerSet {
 	/**
 	 * Stores elements of a set, avoiding duplicates while keeping them sorted.
@@ -15,26 +14,25 @@ public class IntegerSet {
 	/**
 	 * Creates an empty IntegerSet
 	 */
-	public IntegerSet() {
-		
-		
+	public IntegerSet() {	
 	}
+	
 	/**
 	 * Adds item to the set, ignores if duplicate.
 	 * @param item the value to add
 	 */
 	public void add(int item) {
-		
 		set.add(item);
 	}
+	
 	/**
 	 * Removes item from set, ignores if not present.
 	 * @param item the value to remove
 	 */
 	public void remove(int item) {
-		
 		set.remove(item);
 	}
+	
 	/**
 	 * Check if value is in set
 	 * @param value to look for
@@ -43,6 +41,7 @@ public class IntegerSet {
 	public boolean contains(int value) {
 		return set.contains(value);
 	}
+	
 	/**
 	 * Checks length of set
 	 * @return Number of unique elements in the set
@@ -50,6 +49,7 @@ public class IntegerSet {
 	public int length() {
 		return set.size();
 	}
+	
 	/**
 	 * Checks if set is empty
 	 * @return true if set is empty, false if otherwise
@@ -57,12 +57,14 @@ public class IntegerSet {
 	public boolean isEmpty() {
 		return set.isEmpty();
 	}
+	
 	/**
 	 * Removes all elements from a set
 	 */
 	public void clear() {
 		set.clear();
 	}
+	
 	/**
 	 * Checks for the largest value in the set
 	 * @return largest value in set
@@ -74,6 +76,7 @@ public class IntegerSet {
 		}
 		return set.last();
 	}
+	
 	/**
 	 * Checks for smallest value in set
 	 * @return smallest value 
@@ -85,6 +88,7 @@ public class IntegerSet {
 		}
 		return set.first();
 	}
+	
 	/**
 	 * Returns the elements in ascending order inside square brackets,
 	 * separated by a comma and a space, for example [-3, 0, 8, 15].
@@ -95,6 +99,7 @@ public class IntegerSet {
 	public String toString() {
 		return set.toString();
 	}
+	
 	/**
 	 * Checks if set a and set b are equal
 	 * @param b the set to compare with
@@ -103,8 +108,9 @@ public class IntegerSet {
 	public boolean equals(IntegerSet b) {
 		return set.equals(b.set);
 	}
+	
 	/**
-	 * Returns new set with all elements in set a and set b
+	 * Returns new set with all elements in set a or set b
 	 * @param b the other set
 	 * @return new set containing the union
 	 */
@@ -114,8 +120,9 @@ public class IntegerSet {
 		result.set.addAll(b.set);
 		return result;	
 	}
+	
 	/**
-	 * Return new set with all elements in both set a and set b
+	 * Returns a new set with all elements in both set a and set b
 	 * @param b the other set
 	 * @return Intersection of set a and set b
 	 */
@@ -125,8 +132,9 @@ public class IntegerSet {
 		result.set.retainAll(b.set);
 		return result;	
 	}
+	
 	/**
-	 * Return new set with elements in set a but not set b
+	 * Returns a new set with elements in set a but not set b
 	 * @param b the other set
 	 * @return diff between set a and set b
 	 */
@@ -136,8 +144,9 @@ public class IntegerSet {
 		result.set.removeAll(b.set);
 		return result;
 	}
+	
 	/**
-	 * Return new set with elements in set b but not set a
+	 * Returns a new set with elements in set b but not set a
 	 * @param b the other set
 	 * @return complement between set a and set b
 	 */
@@ -147,6 +156,7 @@ public class IntegerSet {
 		result.set.removeAll(this.set);
 		return result;	
 	}
+	
 	/**
 	 * Checks whether every element in set a is also in set b
 	 * @param b the other set
@@ -155,6 +165,7 @@ public class IntegerSet {
 	public boolean isSubsetOf(IntegerSet b) {
 		return b.set.containsAll(this.set);	
 	}
+	
 	/**
 	 * Checks whether set a and set b share no elements
 	 * @param b the other set
@@ -164,6 +175,7 @@ public class IntegerSet {
 		IntegerSet shared = this.intersect(b);
 		return shared.isEmpty();	
 	}
+	
 	/**
 	 * Returns a new set containing elements that occur in exactly one of the two sets
 	 * @param b the other set
@@ -173,9 +185,5 @@ public class IntegerSet {
 		IntegerSet all = this.union(b);
 		IntegerSet shared = this.intersect(b);
 		return all.diff(shared); 	
-	}
-
-
-	
-	
+	}	
 }
