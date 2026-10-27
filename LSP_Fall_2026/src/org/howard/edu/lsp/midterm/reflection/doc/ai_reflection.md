@@ -1,0 +1,7 @@
+AI Reflection:
+
+1. The use of AI in my software development this semester was a vital and helpful resource. In assignment 2, I struggled to fully grasp how to obtain classes, superclasses and other details from a requirements section. I was overwhelmed and asked AI "Explain this to me like i'm 13" and " Give me a trick to remember what should be a class and what shouldn't". Claude gave me a short list of questions to ask about the requirments section that indicated whether I should make those nouns classes or not. 
+
+2. Challenges: AI often hallucinates and/or uses past conversations in newer prompts. At times this is not wanted. If I don't want AI to completely give a coding excerpt, and instead explain, it would sometimes struggle to change gears. 
+
+3. Moving Forward: I do intend to continue using AI in my software development. Specifically, in my debugging process and in any cases where creating classes would be redundant. For example, in creating a part-time and full-time class, it saved time to input my employee class and then give Claude the parameters necessary for the other two. Also, although Eclipse, Idle and other IDE's have debugging tools, AI is easier in fixing simple syntax and logic errors. 
