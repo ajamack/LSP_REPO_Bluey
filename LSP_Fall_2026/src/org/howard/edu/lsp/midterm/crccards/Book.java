@@ -97,9 +97,9 @@ public class Book {
 	@Override
 	public String toString() {
 		if (available) {
-			return isbn + " " + title + " " + author + " " + " [AVAILABLE]";
+			return isbn + " " + title + " by " + author + " " + "[AVAILABLE]";
 		}
-		return isbn + " " + title + " " + author + " " + " [BORROWED]";
+		return isbn + " " + title + " by " + author + " " + "[BORROWED]";
 	}
 
 }
