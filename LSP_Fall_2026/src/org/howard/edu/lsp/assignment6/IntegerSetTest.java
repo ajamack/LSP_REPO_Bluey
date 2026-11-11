@@ -341,8 +341,17 @@ public class IntegerSetTest {
     @Test
     public void testRemoveIgnoresAbsentElement() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s = new IntegerSet();
+    	s.add(3);
+    	s.add(4);
+    	s.add(5);
         // TODO: Act - invoke the operation being tested.
+    	s.remove(6);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+    	assertTrue(s.contains(4));
+    	assertTrue(s.contains(3));
+    	assertTrue(s.contains(5));
+    	assertEquals(3, s.length());
     }
  
     // ===== union() =====
@@ -354,8 +363,23 @@ public class IntegerSetTest {
     @Test
     public void testUnionOverlappingSets() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s1= new IntegerSet();
+    	IntegerSet s2= new IntegerSet();
+
+    	s1.add(3);
+    	s1.add(4);
+    	s1.add(5);
+    	s2.add(3);
+    	s2.add(9);
+    	
         // TODO: Act - invoke the operation being tested.
+    	IntegerSet result = s1.union(s2);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+    	assertTrue(result.contains(3));
+        assertTrue(result.contains(4));
+        assertTrue(result.contains(5));
+        assertTrue(result.contains(9));
+        assertEquals(4, result.length());
     }
  
     /**
@@ -365,8 +389,27 @@ public class IntegerSetTest {
     @Test
     public void testUnionEmptyAndSameOperand() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s1= new IntegerSet();
+    	IntegerSet s2= new IntegerSet();
+
+    	s1.add(3);
+    	s1.add(4);
+    	s1.add(5);
         // TODO: Act - invoke the operation being tested.
+    	IntegerSet r1 = s1.union(s2);
+    	IntegerSet r2 = s1.union(s1);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+    	// Part 1: union with an empty set gives back the same contents
+        assertTrue(r1.equals(s1));
+        assertEquals(3, r1.length());
+
+        // Part 2: union with itself gives back the same contents
+        assertTrue(r2.equals(s1));
+        assertEquals(3, r2.length());
+
+        // The original set was not changed
+        assertEquals(3, s1.length());
+    	
     }
  
     /**
@@ -376,8 +419,31 @@ public class IntegerSetTest {
     @Test
     public void testUnionDoesNotMutateInputs() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+    	
+    	a.add(1);
+    	a.add(2);
+    	
+    	IntegerSet b = new IntegerSet();
+    	
+    	b.add(2);
+    	b.add(3);
         // TODO: Act - invoke the operation being tested.
+    	IntegerSet result = a.union(b);
+    	
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+    	assertEquals(2, a.length());
+    	assertEquals(2, b.length());
+    	assertFalse(a.contains(3));
+    	// Result is a separate object, not a or b
+        assertNotSame(result, a);
+        assertNotSame(result, b);
+        // Modify resuly
+        result.add(99);
+        
+        // Assert: inputs still unchanged after modifying result
+        assertFalse(a.contains(99));
+        assertFalse(b.contains(99));
     }
  
     // ===== intersect() =====
@@ -389,8 +455,24 @@ public class IntegerSetTest {
     @Test
     public void testIntersectOverlappingSets() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+       	a.add(1);
+    	a.add(2);
+    	a.add(3);
+    	a.add(4);
+    	IntegerSet b = new IntegerSet();
+    	b.add(3);
+    	b.add(4);
+    	b.add(5);
         // TODO: Act - invoke the operation being tested.
+    	IntegerSet result = a.intersect(b);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+    	assertTrue(result.contains(3));
+    	assertTrue(result.contains(4));
+    	assertFalse(result.contains(1));
+    	assertFalse(result.contains(5));
+    	assertEquals(2, result.length());
+    	
     }
  
     /**
@@ -400,8 +482,25 @@ public class IntegerSetTest {
     @Test
     public void testIntersectDisjointAndSameOperand() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+        a.add(1);
+        a.add(2);
+
+        IntegerSet b = new IntegerSet();
+        b.add(8);
+        b.add(9);
         // TODO: Act - invoke the operation being tested.
+        IntegerSet r1 = a.intersect(b);
+        IntegerSet r2 = a.intersect(a);
+
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertTrue(r1.isEmpty());
+        assertEquals(0, r1.length());
+
+        assertTrue(r2.equals(a));
+        assertEquals(2, r2.length());
+
+        assertEquals(2, a.length());
     }
  
     /**
@@ -411,8 +510,31 @@ public class IntegerSetTest {
     @Test
     public void testIntersectIndependentResult() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+
+        IntegerSet b = new IntegerSet();
+        b.add(2);
+        b.add(3);
+        b.add(4);
         // TODO: Act - invoke the operation being tested.
+        IntegerSet result = a.intersect(b);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertNotSame(result, a);
+        assertNotSame(result, b);
+        // Modify
+        result.add(99);
+        result.remove(2);
+
+        assertEquals(3, a.length());
+        assertEquals(3, b.length());
+        assertTrue(a.contains(2));
+        assertTrue(b.contains(2));
+        assertFalse(a.contains(99));
+        assertFalse(b.contains(99));
+
     }
  
     // ===== diff() =====
@@ -424,8 +546,28 @@ public class IntegerSetTest {
     @Test
     public void testDiffDirectionMatters() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+
+        IntegerSet b = new IntegerSet();
+        b.add(2);
+        b.add(3);
+        b.add(4);
         // TODO: Act - invoke the operation being tested.
+        IntegerSet aMinusB = a.diff(b);
+        IntegerSet bMinusA = b.diff(a);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertTrue(aMinusB.contains(1));
+        assertFalse(aMinusB.contains(4));
+        assertEquals(1, aMinusB.length());
+
+        assertTrue(bMinusA.contains(4));
+        assertFalse(bMinusA.contains(1));
+        assertEquals(1, bMinusA.length());
+
+        assertFalse(aMinusB.equals(bMinusA));
     }
  
     /**
@@ -435,8 +577,28 @@ public class IntegerSetTest {
     @Test
     public void testDiffEmptyAndSameOperand() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+
+        IntegerSet empty = new IntegerSet();
+
+        
         // TODO: Act - invoke the operation being tested.
+        IntegerSet r1 = a.diff(empty);
+        IntegerSet r2 = empty.diff(a);
+        IntegerSet r3 = a.diff(a);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertTrue(r1.equals(a));
+        assertEquals(3, r1.length());
+
+        assertTrue(r2.isEmpty());
+
+        assertTrue(r3.isEmpty());
+        assertEquals(0, r3.length());
+
+        assertEquals(3, a.length());
     }
  
     /**
@@ -446,8 +608,30 @@ public class IntegerSetTest {
     @Test
     public void testDiffIndependentResult() {
         // TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+
+        IntegerSet b = new IntegerSet();
+        b.add(2);
+        b.add(3);
+        b.add(4);
         // TODO: Act - invoke the operation being tested.
+        IntegerSet result = a.diff(b);
+
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertNotSame(result, a);
+        assertNotSame(result, b);
+        // Modify
+        result.add(99);
+        result.remove(1);
+
+        assertEquals(3, a.length());
+        assertEquals(3, b.length());
+        assertTrue(a.contains(1));
+        assertFalse(a.contains(99));
+        assertFalse(b.contains(99));
     }
  
     // ===== complement() =====
