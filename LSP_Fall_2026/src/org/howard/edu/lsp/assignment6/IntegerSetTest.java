@@ -900,9 +900,24 @@ public class IntegerSetTest {
      */
     @Test
     public void testSymmetricDiffIdenticalSets() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+
+        IntegerSet b = new IntegerSet();
+        b.add(3);
+        b.add(2);
+        b.add(1);
         // TODO: Act - invoke the operation being tested.
+        IntegerSet r1 = a.symmetricDiff(b);
+        IntegerSet r2 = a.symmetricDiff(a);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertTrue(r1.isEmpty());
+        assertEquals(0, r1.length());
+        assertTrue(r2.isEmpty());
+        assertEquals(3, a.length());
     }
  
     /**
@@ -911,9 +926,28 @@ public class IntegerSetTest {
      */
     @Test
     public void testSymmetricDiffEmptyAndDisjointSets() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+        a.add(1);
+        a.add(2);
+
+        IntegerSet c = new IntegerSet();
+        c.add(5);
+        c.add(6);
+
+        IntegerSet empty = new IntegerSet();
         // TODO: Act - invoke the operation being tested.
+        IntegerSet r1 = a.symmetricDiff(empty);
+        IntegerSet r2 = a.symmetricDiff(c);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertTrue(r1.equals(a));
+        assertEquals(2, r1.length());
+
+        assertTrue(r2.contains(1));
+        assertTrue(r2.contains(2));
+        assertTrue(r2.contains(5));
+        assertTrue(r2.contains(6));
+        assertEquals(4, r2.length());
     }
  
     /**
@@ -922,9 +956,31 @@ public class IntegerSetTest {
      */
     @Test
     public void testSymmetricDiffIndependentResult() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet a = new IntegerSet();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+
+        IntegerSet b = new IntegerSet();
+        b.add(3);
+        b.add(4);
         // TODO: Act - invoke the operation being tested.
+        IntegerSet result = a.symmetricDiff(b);
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertNotSame(result, a);
+        assertNotSame(result, b);
+        // Modify
+        result.add(99);
+        result.remove(1);
+        result.remove(4);
+
+        assertEquals(3, a.length());
+        assertEquals(2, b.length());
+        assertTrue(a.contains(1));
+        assertTrue(b.contains(4));
+        assertFalse(a.contains(99));
+        assertFalse(b.contains(99));
     }
  
     // ===== isEmpty() =====
@@ -935,9 +991,12 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsEmptyNewSet() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s = new IntegerSet();
         // TODO: Act - invoke the operation being tested.
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertTrue(s.isEmpty());
+        assertEquals(0, s.length());
     }
  
     /**
@@ -946,9 +1005,13 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsEmptyPopulatedSet() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s = new IntegerSet();
+        s.add(5);
         // TODO: Act - invoke the operation being tested.
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertFalse(s.isEmpty());
+        assertEquals(1, s.length());
     }
  
     /**
@@ -957,9 +1020,15 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsEmptyAfterClear() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s = new IntegerSet();
+        s.add(1);
+        s.add(2);
+        assertFalse(s.isEmpty());
         // TODO: Act - invoke the operation being tested.
+        s.clear();
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertTrue(s.isEmpty());
     }
  
     // ===== toString() =====
@@ -970,9 +1039,16 @@ public class IntegerSetTest {
      */
     @Test
     public void testToStringAscendingOrder() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s = new IntegerSet();
+        s.add(5);
+        s.add(-3);
+        s.add(10);
+        s.add(0);
         // TODO: Act - invoke the operation being tested.
+        String result = s.toString();
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertEquals("[-3, 0, 5, 10]", result);
     }
  
     /**
@@ -981,9 +1057,12 @@ public class IntegerSetTest {
      */
     @Test
     public void testToStringEmptyFormatting() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s = new IntegerSet();
         // TODO: Act - invoke the operation being tested.
+        String result = s.toString();
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertEquals("[]", result);
     }
  
     /**
@@ -992,9 +1071,17 @@ public class IntegerSetTest {
      */
     @Test
     public void testToStringExactSpacingAndDuplicates() {
-        // TODO: Arrange - create the required IntegerSet objects.
+    	// TODO: Arrange - create the required IntegerSet objects.
+    	IntegerSet s = new IntegerSet();
+        s.add(3);
+        s.add(1);
+        s.add(3);
+        s.add(2);
+        s.add(1);
         // TODO: Act - invoke the operation being tested.
+        String result = s.toString();
         // TODO: Assert - verify the expected behavior with JUnit assertions.
+        assertEquals("[1, 2, 3]", result);
     }
  
 }
