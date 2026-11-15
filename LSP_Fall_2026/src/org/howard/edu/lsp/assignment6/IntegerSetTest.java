@@ -262,11 +262,11 @@ public class IntegerSetTest {
      */
     @Test
     public void testSmallestEmptySetThrowsException() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
 
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertThrows(IllegalStateException.class, () -> s.smallest());
 
     }
@@ -279,15 +279,15 @@ public class IntegerSetTest {
      */
     @Test
     public void testAddIgnoresDuplicates() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
     	s.add(2);
     	s.add(2);
     	s.add(2);
     	s.add(2);
     	
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
     	assertTrue(s.contains(2));
     	assertEquals(1, s.length());
     }
@@ -298,14 +298,14 @@ public class IntegerSetTest {
      */
     @Test
     public void testAddHandlesIntegerBoundaries() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
     	
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
     	s.add(Integer.MIN_VALUE);
         s.add(Integer.MAX_VALUE);
         s.add(0);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(s.contains(Integer.MIN_VALUE));
         assertTrue(s.contains(Integer.MAX_VALUE));
         assertTrue(s.contains(0));
@@ -320,14 +320,14 @@ public class IntegerSetTest {
      */
     @Test
     public void testRemoveRemovesExistingElement() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
     	s.add(3);
     	s.add(4);
     	s.add(5);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
     	s.remove(4);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
     	assertFalse(s.contains(4));
     	assertTrue(s.contains(3));
     	assertTrue(s.contains(5));
@@ -340,14 +340,14 @@ public class IntegerSetTest {
      */
     @Test
     public void testRemoveIgnoresAbsentElement() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
     	s.add(3);
     	s.add(4);
     	s.add(5);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
     	s.remove(6);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
     	assertTrue(s.contains(4));
     	assertTrue(s.contains(3));
     	assertTrue(s.contains(5));
@@ -362,7 +362,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testUnionOverlappingSets() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet s1= new IntegerSet();
     	IntegerSet s2= new IntegerSet();
 
@@ -372,9 +372,9 @@ public class IntegerSetTest {
     	s2.add(3);
     	s2.add(9);
     	
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
     	IntegerSet result = s1.union(s2);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
     	assertTrue(result.contains(3));
         assertTrue(result.contains(4));
         assertTrue(result.contains(5));
@@ -388,17 +388,17 @@ public class IntegerSetTest {
      */
     @Test
     public void testUnionEmptyAndSameOperand() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet s1= new IntegerSet();
     	IntegerSet s2= new IntegerSet();
 
     	s1.add(3);
     	s1.add(4);
     	s1.add(5);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
     	IntegerSet r1 = s1.union(s2);
     	IntegerSet r2 = s1.union(s1);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
     	// Part 1: union with an empty set gives back the same contents
         assertTrue(r1.equals(s1));
         assertEquals(3, r1.length());
@@ -418,7 +418,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testUnionDoesNotMutateInputs() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
     	
     	a.add(1);
@@ -428,10 +428,10 @@ public class IntegerSetTest {
     	
     	b.add(2);
     	b.add(3);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
     	IntegerSet result = a.union(b);
     	
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
     	assertEquals(2, a.length());
     	assertEquals(2, b.length());
     	assertFalse(a.contains(3));
@@ -441,7 +441,7 @@ public class IntegerSetTest {
         // Modify resuly
         result.add(99);
         
-        // Assert: inputs still unchanged after modifying result
+        //Assert: inputs still unchanged after modifying result
         assertFalse(a.contains(99));
         assertFalse(b.contains(99));
     }
@@ -454,7 +454,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testIntersectOverlappingSets() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
        	a.add(1);
     	a.add(2);
@@ -464,9 +464,9 @@ public class IntegerSetTest {
     	b.add(3);
     	b.add(4);
     	b.add(5);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
     	IntegerSet result = a.intersect(b);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
     	assertTrue(result.contains(3));
     	assertTrue(result.contains(4));
     	assertFalse(result.contains(1));
@@ -481,7 +481,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testIntersectDisjointAndSameOperand() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -489,11 +489,11 @@ public class IntegerSetTest {
         IntegerSet b = new IntegerSet();
         b.add(8);
         b.add(9);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet r1 = a.intersect(b);
         IntegerSet r2 = a.intersect(a);
 
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(r1.isEmpty());
         assertEquals(0, r1.length());
 
@@ -509,7 +509,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testIntersectIndependentResult() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -519,9 +519,9 @@ public class IntegerSetTest {
         b.add(2);
         b.add(3);
         b.add(4);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet result = a.intersect(b);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertNotSame(result, a);
         assertNotSame(result, b);
         // Modify
@@ -545,7 +545,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testDiffDirectionMatters() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -555,10 +555,10 @@ public class IntegerSetTest {
         b.add(2);
         b.add(3);
         b.add(4);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet aMinusB = a.diff(b);
         IntegerSet bMinusA = b.diff(a);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(aMinusB.contains(1));
         assertFalse(aMinusB.contains(4));
         assertEquals(1, aMinusB.length());
@@ -576,7 +576,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testDiffEmptyAndSameOperand() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -585,11 +585,11 @@ public class IntegerSetTest {
         IntegerSet empty = new IntegerSet();
 
         
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet r1 = a.diff(empty);
         IntegerSet r2 = empty.diff(a);
         IntegerSet r3 = a.diff(a);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(r1.equals(a));
         assertEquals(3, r1.length());
 
@@ -607,7 +607,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testDiffIndependentResult() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -617,10 +617,10 @@ public class IntegerSetTest {
         b.add(2);
         b.add(3);
         b.add(4);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet result = a.diff(b);
 
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertNotSame(result, a);
         assertNotSame(result, b);
         // Modify
@@ -642,7 +642,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testComplementReverseDifference() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -653,10 +653,10 @@ public class IntegerSetTest {
         b.add(3);
         b.add(4);
         b.add(5);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet result = a.complement(b);
 
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(result.contains(4));
         assertTrue(result.contains(5));
         assertFalse(result.contains(1));
@@ -671,16 +671,16 @@ public class IntegerSetTest {
      */
     @Test
     public void testComplementEmptyOperands() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
 
         IntegerSet empty = new IntegerSet();
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet r1 = empty.complement(a);
         IntegerSet r2 = a.complement(empty);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(r1.equals(a));
         assertEquals(2, r1.length());
         assertTrue(r2.isEmpty());
@@ -692,7 +692,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testComplementIndependentResult() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -701,10 +701,10 @@ public class IntegerSetTest {
         b.add(2);
         b.add(3);
         b.add(4);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet result = a.complement(b);
 
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertNotSame(result, a);
         assertNotSame(result, b);
         // Modify
@@ -726,17 +726,17 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsSubsetOfProperSubset() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet small = new IntegerSet();
         small.add(1);
         small.add(2);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet big = new IntegerSet();
         big.add(1);
         big.add(2);
         big.add(3);
 
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(small.isSubsetOf(big));
         assertFalse(big.isSubsetOf(small));
     }
@@ -747,7 +747,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsSubsetOfNotSubset() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(5);
@@ -757,8 +757,8 @@ public class IntegerSetTest {
         b.add(2);
         b.add(3);
 
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertFalse(a.isSubsetOf(b));
 
     }
@@ -769,7 +769,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsSubsetOfEqualSets() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -777,8 +777,8 @@ public class IntegerSetTest {
         IntegerSet b = new IntegerSet();
         b.add(2);
         b.add(1);
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(a.isSubsetOf(b));
         assertTrue(b.isSubsetOf(a));
     }
@@ -789,13 +789,13 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsSubsetOfEmptyCases() {
-        // TODO: Arrange - create the required IntegerSet objects.
+        //Arrange - create the required IntegerSet objects.
     	IntegerSet empty = new IntegerSet();
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(empty.isSubsetOf(a));
         assertFalse(a.isSubsetOf(empty));
     }
@@ -808,7 +808,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsDisjointNoOverlap() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -816,8 +816,8 @@ public class IntegerSetTest {
         IntegerSet b = new IntegerSet();
         b.add(3);
         b.add(4);
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(a.isDisjoint(b));
         assertTrue(b.isDisjoint(a));
     }
@@ -828,7 +828,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsDisjointOverlap() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -837,8 +837,8 @@ public class IntegerSetTest {
         IntegerSet b = new IntegerSet();
         b.add(3);
         b.add(4);
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertFalse(a.isDisjoint(b));
         assertFalse(b.isDisjoint(a));
     }
@@ -849,14 +849,14 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsDisjointEmptyAndSameOperand() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
 
         IntegerSet empty = new IntegerSet();
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(a.isDisjoint(empty));
         assertTrue(empty.isDisjoint(a));
         assertFalse(a.isDisjoint(a));
@@ -870,7 +870,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testSymmetricDiffPartiallyOverlappingSets() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -882,9 +882,9 @@ public class IntegerSetTest {
         b.add(4);
         b.add(5);
         b.add(6);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet result = a.symmetricDiff(b);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(result.contains(1));
         assertTrue(result.contains(2));
         assertTrue(result.contains(5));
@@ -900,7 +900,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testSymmetricDiffIdenticalSets() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -910,10 +910,10 @@ public class IntegerSetTest {
         b.add(3);
         b.add(2);
         b.add(1);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet r1 = a.symmetricDiff(b);
         IntegerSet r2 = a.symmetricDiff(a);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(r1.isEmpty());
         assertEquals(0, r1.length());
         assertTrue(r2.isEmpty());
@@ -926,7 +926,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testSymmetricDiffEmptyAndDisjointSets() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -936,10 +936,10 @@ public class IntegerSetTest {
         c.add(6);
 
         IntegerSet empty = new IntegerSet();
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet r1 = a.symmetricDiff(empty);
         IntegerSet r2 = a.symmetricDiff(c);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(r1.equals(a));
         assertEquals(2, r1.length());
 
@@ -956,7 +956,7 @@ public class IntegerSetTest {
      */
     @Test
     public void testSymmetricDiffIndependentResult() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet a = new IntegerSet();
         a.add(1);
         a.add(2);
@@ -965,9 +965,9 @@ public class IntegerSetTest {
         IntegerSet b = new IntegerSet();
         b.add(3);
         b.add(4);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         IntegerSet result = a.symmetricDiff(b);
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertNotSame(result, a);
         assertNotSame(result, b);
         // Modify
@@ -991,10 +991,10 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsEmptyNewSet() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(s.isEmpty());
         assertEquals(0, s.length());
     }
@@ -1005,11 +1005,11 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsEmptyPopulatedSet() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
         s.add(5);
-        // TODO: Act - invoke the operation being tested.
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Act - invoke the operation being tested.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertFalse(s.isEmpty());
         assertEquals(1, s.length());
     }
@@ -1020,14 +1020,14 @@ public class IntegerSetTest {
      */
     @Test
     public void testIsEmptyAfterClear() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
         s.add(1);
         s.add(2);
         assertFalse(s.isEmpty());
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         s.clear();
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertTrue(s.isEmpty());
     }
  
@@ -1039,15 +1039,15 @@ public class IntegerSetTest {
      */
     @Test
     public void testToStringAscendingOrder() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
         s.add(5);
         s.add(-3);
         s.add(10);
         s.add(0);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         String result = s.toString();
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertEquals("[-3, 0, 5, 10]", result);
     }
  
@@ -1057,11 +1057,11 @@ public class IntegerSetTest {
      */
     @Test
     public void testToStringEmptyFormatting() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	// Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         String result = s.toString();
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertEquals("[]", result);
     }
  
@@ -1071,16 +1071,16 @@ public class IntegerSetTest {
      */
     @Test
     public void testToStringExactSpacingAndDuplicates() {
-    	// TODO: Arrange - create the required IntegerSet objects.
+    	//Arrange - create the required IntegerSet objects.
     	IntegerSet s = new IntegerSet();
         s.add(3);
         s.add(1);
         s.add(3);
         s.add(2);
         s.add(1);
-        // TODO: Act - invoke the operation being tested.
+        //Act - invoke the operation being tested.
         String result = s.toString();
-        // TODO: Assert - verify the expected behavior with JUnit assertions.
+        //Assert - verify the expected behavior with JUnit assertions.
         assertEquals("[1, 2, 3]", result);
     }
  
