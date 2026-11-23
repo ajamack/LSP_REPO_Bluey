@@ -113,6 +113,52 @@ public class Event {
     public EventStatus getStatus() {
         return status;
     }
+    /**
+     * Updates the event's details. Status and ID are not changed.
+     *
+     * @param name the new name
+     * @param description the new description
+     * @param location the new location
+     * @param dateTime the new date and time
+     * @param capacity the new maximum number of attendees
+     * @throws InvalidOperationException if the event has been canceled
+     * @throws IllegalArgumentException if any value is invalid
+     */
+    void update(String name, String description, String location,
+                LocalDateTime dateTime, int capacity) throws InvalidOperationException {
+        if (status == EventStatus.CANCELED) {
+            throw new InvalidOperationException("Cannot update a canceled event.");
+        }
+        this.name = requireText(name, "Name");
+        this.description = requireText(description, "Description");
+        this.location = requireText(location, "Location");
+        this.dateTime = requireDateTime(dateTime);
+        this.capacity = requirePositive(capacity);
+    }
+
+    /**
+     * Closes the event so it no longer accepts registrations.
+     *
+     * @throws InvalidOperationException if the event is already closed or canceled
+     */
+    void close() throws InvalidOperationException {
+        if (status != EventStatus.OPEN) {
+            throw new InvalidOperationException("Only an OPEN event can be closed.");
+        }
+        status = EventStatus.CLOSED;
+    }
+
+    /**
+     * Cancels the event.
+     *
+     * @throws InvalidOperationException if the event is already canceled
+     */
+    void cancel() throws InvalidOperationException {
+        if (status == EventStatus.CANCELED) {
+            throw new InvalidOperationException("Event is already canceled.");
+        }
+        status = EventStatus.CANCELED;
+    }
 
     /**
      * Checks that a text value is not null or blank.
