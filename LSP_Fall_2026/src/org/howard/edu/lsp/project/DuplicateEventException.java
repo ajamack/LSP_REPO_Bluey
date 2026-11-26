@@ -4,6 +4,8 @@ package org.howard.edu.lsp.project;
  */
 
 public class DuplicateEventException extends EventSystemException {
+	private static final long serialVersionUID = 1L;
+
 	/** 
 	 * Creates a new exception with a message describing the problem.
 	 * @param message the detailed message

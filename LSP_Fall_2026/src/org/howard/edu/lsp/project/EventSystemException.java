@@ -5,6 +5,8 @@ package org.howard.edu.lsp.project;
 
 public class EventSystemException extends Exception {
 	
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Creates new exception with a message describing the problem
 	 * @param message the detail message
