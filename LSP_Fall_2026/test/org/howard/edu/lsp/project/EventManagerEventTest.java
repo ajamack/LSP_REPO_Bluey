@@ -1,4 +1,4 @@
-package org.howard.edu.lsp.project.test;
+package org.howard.edu.lsp.project;
 
 import static org.junit.jupiter.api.Assertions.*;
 
