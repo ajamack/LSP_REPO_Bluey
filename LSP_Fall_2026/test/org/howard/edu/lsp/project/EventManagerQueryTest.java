@@ -1,16 +1,14 @@
 package org.howard.edu.lsp.project;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.howard.edu.lsp.project.Attendee;
-import org.howard.edu.lsp.project.AttendeeNotFoundException;
-import org.howard.edu.lsp.project.Event;
-import org.howard.edu.lsp.project.EventManager;
-import org.howard.edu.lsp.project.EventNotFoundException;
-import org.howard.edu.lsp.project.Registration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

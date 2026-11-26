@@ -1,11 +1,9 @@
 package org.howard.edu.lsp.project;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.howard.edu.lsp.project.Attendee;
-import org.howard.edu.lsp.project.AttendeeNotFoundException;
-import org.howard.edu.lsp.project.DuplicateAttendeeException;
-import org.howard.edu.lsp.project.EventManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
